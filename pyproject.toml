@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "django-langchain-starter"
+version = "0.1.0"
+description = ""
+authors = ["vivmagarwal <vivmagarwal@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+langchain = "^0.3.3"
+langchain-chroma = "^0.1.4"
+langchain-community = "^0.3.2"
+langchain-core = "^0.3.10"
+langchain-experimental = "^0.3.2"
+langchain-huggingface = "^0.1.0"
+langchain-openai = "^0.2.2"
+langchain-text-splitters = "^0.3.0"
+django = "^5.1.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app  # This ensures your local files are synced with the container
+    environment:
+      - DEBUG=1
+      - DJANGO_ALLOWED_HOSTS=0.0.0.0
+    command: poetry run python manage.py runserver 0.0.0.0:8000

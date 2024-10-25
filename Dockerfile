@@ -1,21 +1,23 @@
-# Use an official Python runtime as a parent image
-FROM python:3.10.15-slim
+# Use the Python slim image as the base image
+FROM python:3.10-slim
 
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /app
 
-# Copy the project metadata
+# Install Poetry globally
+RUN pip install poetry
+
+# Copy configuration files
 COPY pyproject.toml poetry.lock ./
 
-# Install Poetry and dependencies
-RUN pip install poetry==1.8.3
-RUN poetry install --no-dev --no-interaction
+# Configure Poetry to avoid creating virtual environments and install dependencies
+RUN poetry config virtualenvs.create false && poetry install --only main
 
-# Copy all project files to the container
-COPY . /app
+# Copy the application files
+COPY . .
 
-# Expose port 8000 for Django
+# Expose the necessary port
 EXPOSE 8000
 
-# Start the Django development server (referencing manage.py)
-CMD ["poetry", "run", "python", "manage.py", "runserver", "0.0.0.0:8000"]
+# Start the application with Gunicorn via Poetry
+CMD ["poetry", "run", "gunicorn", "--bind", "0.0.0.0:8000", "mysite.wsgi"]

@@ -1,22 +1,85 @@
-Here’s a comprehensive README file for your Django + Langchain project, which includes detailed steps and commands for installation, setup, container management, and interacting with the Docker environment.
-
----
-
 # Django LangChain Starter
 
 This project is a Django starter template integrated with LangChain, using Docker and Poetry for efficient dependency management. It includes SQLite for database management in the development environment.
 
 ## Prerequisites
 
-Before running the project, make sure you have the following installed:
+Before you begin, ensure you have the following installed:
 
-- **Docker**: Install Docker from [here](https://docs.docker.com/get-docker/).
-- **Docker Compose**: Usually comes with Docker Desktop, but you can install it separately if needed.
-- **Poetry**: Poetry is used for Python dependency management. Install it with:
+- **Docker** (with Docker Compose)
+- **Python 3.10.x** (managed with `pyenv` or installed locally)
+- **Poetry** (installed with `pipx`)
 
-   ```bash
-   curl -sSL https://install.python-poetry.org | python3 -
-   ```
+### 1. Install `pyenv` to Manage Python Versions
+
+To ensure you are using the correct Python version (3.10.15), you should install `pyenv`.
+
+Run the following command to install `pyenv`:
+
+```bash
+curl https://pyenv.run | bash
+```
+
+Configure your shell (add these lines to your `~/.bashrc` or `~/.zshrc`):
+
+```bash
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+```
+
+Restart your terminal and verify installation:
+
+```bash
+pyenv --version
+```
+
+### 2. Install Python 3.10.15
+
+Once `pyenv` is installed, run these commands to install Python 3.10.15 and set it as your local version for the project:
+
+```bash
+pyenv install 3.10.15
+pyenv local 3.10.15
+```
+
+Verify your Python version:
+
+```bash
+python --version
+```
+
+### 3. Install `pipx` to Manage CLI Tools
+
+`pipx` allows you to install and run Python applications in isolated environments.
+
+Run the following command to install `pipx`:
+
+```bash
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+```
+
+Verify installation:
+
+```bash
+pipx --version
+```
+
+### 4. Install `Poetry` using `pipx`
+
+Use `pipx` to install `Poetry`, the tool that will manage project dependencies:
+
+```bash
+pipx install poetry
+```
+
+Verify `Poetry` is installed:
+
+```bash
+poetry --version
+```
+
 
 ## Project Setup
 
@@ -545,81 +608,6 @@ This project sets up a Python environment using `Poetry` for dependency manageme
 
 ## Prerequisites
 
-Before you begin, ensure you have the following installed:
-
-- **Docker** (with Docker Compose)
-- **Python 3.10.x** (managed with `pyenv` or installed locally)
-- **Poetry** (installed with `pipx`)
-
-### 1. Install `pyenv` to Manage Python Versions
-
-To ensure you are using the correct Python version (3.10.15), you should install `pyenv`.
-
-Run the following command to install `pyenv`:
-
-```bash
-curl https://pyenv.run | bash
-```
-
-Configure your shell (add these lines to your `~/.bashrc` or `~/.zshrc`):
-
-```bash
-export PATH="$HOME/.pyenv/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-```
-
-Restart your terminal and verify installation:
-
-```bash
-pyenv --version
-```
-
-### 2. Install Python 3.10.15
-
-Once `pyenv` is installed, run these commands to install Python 3.10.15 and set it as your local version for the project:
-
-```bash
-pyenv install 3.10.15
-pyenv local 3.10.15
-```
-
-Verify your Python version:
-
-```bash
-python --version
-```
-
-### 3. Install `pipx` to Manage CLI Tools
-
-`pipx` allows you to install and run Python applications in isolated environments.
-
-Run the following command to install `pipx`:
-
-```bash
-python3 -m pip install --user pipx
-python3 -m pipx ensurepath
-```
-
-Verify installation:
-
-```bash
-pipx --version
-```
-
-### 4. Install `Poetry` using `pipx`
-
-Use `pipx` to install `Poetry`, the tool that will manage project dependencies:
-
-```bash
-pipx install poetry
-```
-
-Verify `Poetry` is installed:
-
-```bash
-poetry --version
-```
 
 ## Project Setup
 

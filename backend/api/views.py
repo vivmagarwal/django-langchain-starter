@@ -3,6 +3,8 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
 from .models import Task
+from api.services.llm_providers.huggingface_service import get_huggingface_llm
+
 
 # Create your views here.
 def index(request):
@@ -30,4 +32,8 @@ def add_task(request):
 
 
 
-
+@csrf_exempt
+def get_prediction(request):
+  llm = get_huggingface_llm()
+  output = llm.invoke('Who is the president of the United States?')
+  return JsonResponse({'output': output})

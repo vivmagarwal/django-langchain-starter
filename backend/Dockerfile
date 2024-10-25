@@ -20,4 +20,4 @@ COPY . .
 EXPOSE 8000
 
 # Start the application with Gunicorn
-CMD ["poetry", "run", "gunicorn", "--bind", "0.0.0.0:8000", "mysite.wsgi"]
+CMD ["poetry", "run", "gunicorn", "--bind", "0.0.0.0:8000", "server.wsgi"]

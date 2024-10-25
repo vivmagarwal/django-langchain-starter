@@ -27,3 +27,7 @@ def add_task(request):
       return JsonResponse({'message': 'Invalid data!'})
 
   return JsonResponse({'message': 'Invalid method!'}, status=405)  
+
+
+
+

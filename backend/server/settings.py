@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -122,3 +124,20 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Load environment variables
+# Initialize environment variable reader
+env = environ.Env()
+
+# Load all variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+# Access variables in settings.py
+DEBUG = env('DEBUG')
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
+
+# API keys
+HUGGINGFACE_API_KEY = env('HUGGINGFACE_API_KEY')
+OPENAI_API_KEY = env('OPENAI_API_KEY')
+
+

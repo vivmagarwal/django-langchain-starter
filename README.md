@@ -242,7 +242,7 @@ docker-compose exec web poetry update
    If `manage.py` isn't found, ensure the Django project has been initialized with:
 
    ```bash
-   docker-compose exec web poetry run django-admin startproject mysite .
+   docker-compose exec web poetry run django-admin startproject server .
    ```
 
 3. **Container Doesn't Start**:  
@@ -421,8 +421,8 @@ Poetry makes it easy to maintain dependencies in the project. Here are some usef
    Begin by creating a new Django project:
 
    ```bash
-   django-admin startproject mysite
-   cd mysite
+   django-admin startproject server
+   cd server
    ```
 
 ### 2. **Set Up Poetry for Dependency Management**
@@ -475,7 +475,7 @@ Poetry makes it easy to maintain dependencies in the project. Here are some usef
    EXPOSE 8000
 
    # Command to run the application
-   CMD ["gunicorn", "--bind", "0.0.0.0:8000", "mysite.wsgi"]
+   CMD ["gunicorn", "--bind", "0.0.0.0:8000", "server.wsgi"]
    ```
 
 ### 4. **Create `docker-compose.yml` for Service Orchestration**
@@ -487,7 +487,7 @@ Poetry makes it easy to maintain dependencies in the project. Here are some usef
    services:
      web:
        build: .
-       command: gunicorn --bind 0.0.0.0:8000 mysite.wsgi
+       command: gunicorn --bind 0.0.0.0:8000 server.wsgi
        volumes:
          - .:/app
        ports:
@@ -639,7 +639,7 @@ cd <your-project-directory>
 If a `manage.py` file is missing, you need to initialize the Django project. You can run the following command to create it:
 
 ```bash
-poetry run django-admin startproject mysite .
+poetry run django-admin startproject server .
 ```
 
 This will generate the `manage.py` file and the basic Django project structure.

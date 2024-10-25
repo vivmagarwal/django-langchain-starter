@@ -5,7 +5,7 @@ services:
   backend:
     build:
       context: ./backend
-    command: poetry run gunicorn --bind 0.0.0.0:8000 mysite.wsgi
+    command: poetry run gunicorn --bind 0.0.0.0:8000 server.wsgi
     volumes:
       - ./backend:/app
     ports:

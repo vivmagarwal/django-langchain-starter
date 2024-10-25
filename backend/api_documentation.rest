@@ -1,0 +1,12 @@
+POST http://localhost:8000/api/add-task
+Content-Type: application/json
+
+{
+  "title": "Task 3",
+  "completed": true
+}
+
+###
+
+GET http://localhost:8000/api
+

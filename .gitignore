@@ -1,0 +1,33 @@
+# Python-related
+*.pyc
+__pycache__/
+
+# Virtual environment and Poetry
+.venv/
+.env
+
+# SQLite database (if using SQLite for development)
+backend/db.sqlite3
+
+# Django static and media files
+backend/staticfiles/
+backend/media/
+
+# Logs
+*.log
+
+# Docker-specific
+docker-compose.override.yml
+.dockerignore
+
+# MacOS-related (optional)
+.DS_Store
+
+# Ignore generated repopack files
+repopack-output.txt
+
+# Backend-specific ignores
+backend/pyproject.toml
+backend/poetry.lock
+backend/db.sqlite3
+

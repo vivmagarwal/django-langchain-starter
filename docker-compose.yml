@@ -1,8 +1,16 @@
+version: '3.8'
+
 services:
-  web:
-    build: .
+  # Backend (Django) Service
+  backend:
+    build:
+      context: ./backend
     command: poetry run gunicorn --bind 0.0.0.0:8000 mysite.wsgi
     volumes:
-      - .:/app
+      - ./backend:/app
     ports:
       - "8000:8000"
+    environment:
+      - DEBUG=True
+
+

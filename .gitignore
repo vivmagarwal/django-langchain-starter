@@ -27,7 +27,7 @@ docker-compose.override.yml
 repopack-output.txt
 
 # Backend-specific ignores
-backend/pyproject.toml
+# backend/pyproject.toml
 backend/poetry.lock
 backend/db.sqlite3
 

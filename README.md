@@ -43,6 +43,11 @@ pyenv install 3.10.15
 pyenv local 3.10.15
 ```
 
+Since Python 3.10.15 is already specified, ensure that your environment is using it as the default for poetry commands. Try specifying the Python version directly in Poetry to avoid conflicts:
+```
+poetry env use 3.10.15
+```
+
 Verify your Python version:
 
 ```bash
@@ -91,6 +96,8 @@ Start by cloning the repository from GitHub (or any other source) and navigate i
 git clone https://github.com/your-repo/django-langchain-starter.git
 cd django-langchain-starter
 ```
+
+rename `sample.env` to `.env` and update the environment variables as needed.
 
 ### Step 2: Install Python Dependencies Using Poetry
 
